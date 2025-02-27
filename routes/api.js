@@ -50,6 +50,11 @@ module.exports = function (app) {
       const row = coordinate.charCodeAt(0) - 65; // Convert A-I to 0-8
       const col = parseInt(coordinate[1]) - 1;
 
+      const grid = solver.transformToGrid(puzzle);
+      if (grid[row][col] === parseInt(value)) {
+          return res.json({ valid: true });
+      }
+      
       const conflicts = [];
       if (!solver.checkRowPlacement(puzzle, row, col, parseInt(value))) {
         conflicts.push('row');
