@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sudoku Grid Styling */
+.sudoku-input {
+    @apply w-14 h-14 text-center text-2xl bg-[#0f172a] border-0 focus:outline-none text-white transition-colors;
+}
+
+/* Grid Container */
+.grid-container {
+    @apply p-8 rounded-3xl shadow-xl bg-[#1e293b] flex items-center justify-center;
+}
+
+/* Custom Grid Borders */
+#sudoku-grid {
+    @apply border-2 border-pink-500 bg-[#0f172a] table-fixed;
+}
+
+#sudoku-grid td {
+    @apply p-0 border border-[#1e293b] relative;
+}
+
+#sudoku-grid tr:nth-of-type(3n) td {
+    @apply border-b-2 border-b-pink-500;
+}
+
+#sudoku-grid td:nth-of-type(3n) {
+    @apply border-r-2 border-r-pink-500;
+}
+
+/* Error Message Styling */
+#error:not(:empty) {
+    @apply block transition-opacity duration-300 ease-in;
+}
